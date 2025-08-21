@@ -173,7 +173,7 @@ export default function HeroSection() {
                 },
               }}
             >
-              <div className='relative -mr-56 mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20'>
+              <div className='relative  mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20'>
                 <div
                   aria-hidden
                   className='bg-linear-to-b to-background absolute inset-0 z-10 from-transparent from-35%'
@@ -184,12 +184,12 @@ export default function HeroSection() {
                     src='/images/header-image.jpg'
                     alt='app screen'
                     width='2700'
-                    height='1800'
+                    height='1867'
                   />
                 </div>
               </div>
             </AnimatedGroup>
-                  <h2 className='text-3xl text-center font-bold'>What you'll get</h2>
+                  <h2 className='text-3xl text-center font-bold py-2'>What you'll get</h2>
           </div>
         </section>
       </main>

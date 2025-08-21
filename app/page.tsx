@@ -1,12 +1,15 @@
-import { HeroHeader } from "@/components/header";
+import ContentSection from "@/components/content-2";
+import Features from "@/components/features-1";
 import HeroSection from "@/components/hero-section";
 
 
 export default function Home() {
   return (
-   <div>
+   <div className='min-h-[calc(100vh-64px)]'>
    
     <HeroSection/>
+    <Features/>
+    <ContentSection/>
    </div>
 
   );
