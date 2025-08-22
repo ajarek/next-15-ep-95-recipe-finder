@@ -1,3 +1,4 @@
+import CallToAction from "@/components/call-to-action";
 import ContentSection from "@/components/content-2";
 import Features from "@/components/features-1";
 import HeroSection from "@/components/hero-section";
@@ -10,6 +11,7 @@ export default function Home() {
     <HeroSection/>
     <Features/>
     <ContentSection/>
+    <CallToAction/>
    </div>
 
   );
