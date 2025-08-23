@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Capriola } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-
+import { HeroHeader } from '@/components/header'
 
  
 const capriola = Capriola({
@@ -34,6 +34,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <HeroHeader/>
         {children}
         </ThemeProvider>
       </body>
