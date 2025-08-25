@@ -7,6 +7,7 @@ import { motion } from 'motion/react'
 import Image from 'next/image'
 import { Button } from './ui/button'
 import { AlarmClock, ConciergeBell, User } from 'lucide-react'
+import Link from 'next/link'
 
 export default function CardsRecipes({
   recipes,
@@ -76,7 +77,9 @@ export default function CardsRecipes({
                 <p className='flex items-center gap-2'><ConciergeBell />Cook: {recipe.cookTimeMinutes} minutes</p>
               </CardContent>
               <CardFooter className='p-2'>
-                <Button className='w-full rounded-full'>View Recipe</Button>
+                <Button className='w-full rounded-full' asChild>
+                  <Link href={`/recipes/${recipe.id}`}>View Recipe</Link>
+                </Button>
               </CardFooter>
             </Card>
           </motion.div>

@@ -10,7 +10,7 @@ import ModeToggle from './mode-toggle'
 const menuItems = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Recipes', href: 'recipes' },
+    { name: 'Recipes', href: '/recipes' },
     
 ]
 
