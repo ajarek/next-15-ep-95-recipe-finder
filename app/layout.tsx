@@ -3,6 +3,7 @@ import { Capriola } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { HeroHeader } from '@/components/header'
+import FooterSection from "@/components/footer";
 
  
 const capriola = Capriola({
@@ -36,6 +37,7 @@ export default function RootLayout({
         >
           <HeroHeader/>
         {children}
+         <FooterSection/>
         </ThemeProvider>
       </body>
     </html>

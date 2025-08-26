@@ -1,4 +1,5 @@
 'use client'
+
 import React from 'react'
 
 import { Card, CardContent, CardFooter } from '@/components/ui/card'
@@ -8,9 +9,10 @@ import Image from 'next/image'
 import { Button } from './ui/button'
 import { AlarmClock, ConciergeBell, User } from 'lucide-react'
 import Link from 'next/link'
+import SelectName from './select-name'
 
 export default function CardsRecipes({
-  recipes,
+  recipes, name
 }: {
   recipes: {
     recipes: {
@@ -21,8 +23,10 @@ export default function CardsRecipes({
       servings: number
       prepTimeMinutes: number
       cookTimeMinutes: number
+      ingredients: string[]
     }[]
   }
+  name: string | null
 }) {
   return (
     <div className='relative pt-16 md:pt-24 mx-auto max-w-6xl px-4 space-y-4'>
@@ -47,8 +51,18 @@ export default function CardsRecipes({
           catch your eye.
         </motion.p>
       </div>
+
+    <SelectName query='name' />
+
+
+
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4'>
-        {recipes.recipes.map((recipe, index) => (
+        {recipes.recipes
+        .filter((item) =>
+            name ? item.name.toLowerCase().includes(name.toLowerCase()) ||
+            item.ingredients.some(ingredient => ingredient.toLowerCase().includes(name.toLowerCase())) : true)
+        
+        .map((recipe, index) => (
           <motion.div
             key={recipe.id}
             initial={{ opacity: 0, y: 20 }}

@@ -22,7 +22,7 @@ export default function CardSingleRecipe(props: PropsCard) {
   return (
     <div className=' pt-16 md:pt-24 mx-auto max-w-6xl px-4 pb-4'>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-        <div className='relative h-120 w-full rounded-lg overflow-hidden shadow-xl'>
+        <div className='relative h-80 md:h-96 lg:h-120 w-full rounded-lg overflow-hidden shadow-xl'>
           <Image
             src={props.image}
             alt={props.name}
