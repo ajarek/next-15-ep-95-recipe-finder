@@ -6,9 +6,6 @@ export default function CallToAction() {
         <section className="py-4 md:py-8">
             <div 
                 className="mx-auto max-w-5xl px-6 rounded-lg shadow-lg p-8"
-                style={{
-                    backgroundImage: `radial-gradient(circle 600px at 50% 50%, var(--action), transparent)`,
-                }}
             >
                 <div className="text-center">
                     <h2 className="text-balance text-4xl font-semibold lg:text-5xl">Ready to cook smarter</h2>
