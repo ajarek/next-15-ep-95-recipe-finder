@@ -115,14 +115,21 @@ function AnimatedGroup({
   const containerVariants = variants?.container || selectedVariants.container;
   const itemVariants = variants?.item || selectedVariants.item;
 
-  const MotionComponent = React.useMemo(
-    () => motion.create(as as keyof JSX.IntrinsicElements),
-    [as]
-  );
-  const MotionChild = React.useMemo(
-    () => motion.create(asChild as keyof JSX.IntrinsicElements),
-    [asChild]
-  );
+  const MotionComponent = React.useMemo(() => {
+    if (typeof as === 'string') {
+      // @ts-ignore
+      return motion[as] || motion.div;
+    }
+    return motion(as as React.ElementType);
+  }, [as]);
+
+  const MotionChild = React.useMemo(() => {
+    if (typeof asChild === 'string') {
+      // @ts-ignore
+      return motion[asChild] || motion.div;
+    }
+    return motion(asChild as React.ElementType);
+  }, [asChild]);
 
   return (
     <MotionComponent
@@ -131,11 +138,15 @@ function AnimatedGroup({
       variants={containerVariants}
       className={className}
     >
-      {React.Children.map(children, (child, index) => (
-        <MotionChild key={index} variants={itemVariants}>
-          {child}
-        </MotionChild>
-      ))}
+      {React.Children.map(children, (child) => {
+        // Use child's key if available, otherwise fallback to undefined (React will warn if no key)
+        const key = (React.isValidElement(child) && child.key != null) ? child.key : undefined;
+        return (
+          <MotionChild key={key} variants={itemVariants}>
+            {child}
+          </MotionChild>
+        );
+      })}
     </MotionComponent>
   );
 }
