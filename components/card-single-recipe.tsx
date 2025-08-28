@@ -31,21 +31,41 @@ export default function CardSingleRecipe(props: PropsCard) {
           />
         </div>
         <div className='flex flex-col gap-4 px-4'>
-          <h1 className='text-xl font-semibold'>{props.name}<span className='text-sm font-normal text-gray-500'>{' '}
-            {props.mealType.join(', ')}
-            </span></h1>
+          <h1 className='text-xl font-semibold'>
+            {props.name}
+            <span className='text-sm font-normal text-gray-500'>
+              {' '}
+              {props.mealType.join(', ')}
+            </span>
+          </h1>
           <div className='flex items-center gap-4 '>
-                  <p className='flex items-center gap-2'><User />Servings: {props.servings}</p>
-                  <p className='flex items-center gap-2'><AlarmClock />Prep: {props.prepTimeMinutes} minutes</p>
-                  <p className='flex items-center gap-2'><AlarmClock />Cook: {props.cookTimeMinutes} minutes</p>
-
-                </div>
+            <p className='flex items-center gap-2'>
+              <User />
+              Servings: {props.servings}
+            </p>
+            <p className='flex items-center gap-2'>
+              <AlarmClock />
+              Prep: {props.prepTimeMinutes} minutes
+            </p>
+            <p className='flex items-center gap-2'>
+              <AlarmClock />
+              Cook: {props.cookTimeMinutes} minutes
+            </p>
+          </div>
           <div className='flex items-center gap-4 '>
-                  <p className='flex items-center gap-2'><ChefHat />Difficulty: {props.difficulty}</p>
-                  <p className='flex items-center gap-2'><Globe />Cuisine: {props.cuisine} </p>
-                  <p className='flex items-center gap-2'><Hamburger />Calories: {props.caloriesPerServing} </p>
-
-                </div>
+            <p className='flex items-center gap-2'>
+              <ChefHat />
+              Difficulty: {props.difficulty}
+            </p>
+            <p className='flex items-center gap-2'>
+              <Globe />
+              Cuisine: {props.cuisine}{' '}
+            </p>
+            <p className='flex items-center gap-2'>
+              <Hamburger />
+              Calories: {props.caloriesPerServing}{' '}
+            </p>
+          </div>
           <div>
             <h2 className='text-lg font-semibold'>Ingredients:</h2>
             <ul className='list-disc px-4 '>

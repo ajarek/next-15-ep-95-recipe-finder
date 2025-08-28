@@ -1,7 +1,5 @@
 'use client'
 
-'use client'
-
 import { useState } from 'react'
 import { experimental_useObject as useObject } from '@ai-sdk/react'
 import { recipeSchema } from '@/app/api/structuredData/schema'
@@ -23,19 +21,19 @@ export default function StructuredDataPage() {
   }
 
   return (
-     <div className='min-h-[calc(100vh-64px)] flex flex-col justify-end w-full max-w-md  mx-auto stretch pt-18 pb-4'>
+    <div className='min-h-[calc(100vh-64px)] flex flex-col justify-end w-full max-w-md  mx-auto stretch pt-18 pb-4'>
       {error && <div className='text-red-500 mb-4 px-4'>{error.message}</div>}
       {object?.recipe && (
-        <div className='space-y-6 px-4 mb-6'> 
+        <div className='space-y-6 px-4 mb-6'>
           <h2 className='text-2xl font-bold'>{object.recipe.name}</h2>
 
           {object?.recipe?.ingredients && (
             <div>
               <h3 className='text-xl font-semibold mb-4'>Ingredients</h3>
               <div className='grid grid-cols-2 gap-4'>
-                {object.recipe.ingredients.map((ingredient, index) => (
+                {object.recipe.ingredients.map((ingredient) => (
                   <div
-                    key={index}
+                    key={ingredient?.name}
                     className='bg-zinc-50 dark:bg-zinc-800 p-4 rounded-lg'
                   >
                     <p className='font-medium'>{ingredient?.name}</p>
@@ -54,7 +52,7 @@ export default function StructuredDataPage() {
               <ol className='space-y-4'>
                 {object.recipe.steps.map((step, index) => (
                   <li
-                    key={index}
+                    key={step || ''}
                     className='bg-zinc-50 dark:bg-zinc-800 p-4 rounded-lg'
                   >
                     <span className='font-medium mr-2'>{index + 1}.</span>

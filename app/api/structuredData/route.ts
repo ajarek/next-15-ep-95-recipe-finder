@@ -1,22 +1,22 @@
-import { streamObject } from "ai";
-import { google } from "@ai-sdk/google";
-import { recipeSchema } from "./schema";
+import { streamObject } from 'ai'
+import { google } from '@ai-sdk/google'
+import { recipeSchema } from './schema'
 
 export async function POST(req: Request) {
   try {
-    const { dish } = await req.json();
+    const { dish } = await req.json()
 
-    console.log({ dish });
+    console.log({ dish })
 
     const result = streamObject({
-      model: google("gemini-2.5-pro"),
+      model: google('gemini-2.5-pro'),
       schema: recipeSchema,
       prompt: `Generate a recipe for ${dish}`,
-    });
+    })
 
-    return result.toTextStreamResponse();
+    return result.toTextStreamResponse()
   } catch (error) {
-    console.error("Error generating recipe:", error);
-    return new Response("Failed to generate recipe", { status: 500 });
+    console.error('Error generating recipe:', error)
+    return new Response('Failed to generate recipe', { status: 500 })
   }
 }

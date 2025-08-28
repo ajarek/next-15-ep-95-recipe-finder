@@ -12,6 +12,9 @@ yarn dev
 pnpm dev
 # or
 bun dev
+
+add key to .env file:  GOOGLE_GENERATIVE_AI_API_KEY=''
+
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

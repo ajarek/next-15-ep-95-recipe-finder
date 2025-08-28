@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod'
 
 export const recipeSchema = z.object({
   recipe: z.object({
@@ -11,4 +11,4 @@ export const recipeSchema = z.object({
     ),
     steps: z.array(z.string()),
   }),
-});
+})

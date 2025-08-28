@@ -1,6 +1,4 @@
-
-
-export async  function getRecipes() {
+export async function getRecipes() {
   const res = await fetch('https://dummyjson.com/recipes', {
     next: { revalidate: 1 },
     headers: {
@@ -12,7 +10,7 @@ export async  function getRecipes() {
   }
   return res.json()
 }
-export async  function getRecipeDetails(id: string) {
+export async function getRecipeDetails(id: string) {
   const res = await fetch(`https://dummyjson.com/recipes/${id}`, {
     next: { revalidate: 1 },
     headers: {
